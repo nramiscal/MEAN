@@ -1,0 +1,10 @@
+<div class="sub">
+    <div class="subComponent" *ngFor="let class of classes">
+        <fieldset>
+            <legend><h3>{{class[0]}}</h3></legend>
+            <p>Power Level: <span *ngIf="display">{{powerLevel*class[1] | json}}</span></p>
+            <h3 *ngIf="powerLevel*class[1]>class[2]">{{class[3]}}</h3>
+
+        </fieldset>
+    </div>
+</div>

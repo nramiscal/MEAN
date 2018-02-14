@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Dogs</title>
+    <style>
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+      }
+
+      tr:nth-child(even) {
+          background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- <p><%= dogs %></p> -->
+    <h1>All Dogs</h1>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Color</th>
+        <th>Age</th>
+        <th>Action</th>
+      </tr>
+      <% for (var i in dogs) { %>
+      <tr>
+        <td><a href="/dogs/show/<%=dogs[i].id%>"><%= dogs[i].name %></a></td>
+        <td><%= dogs[i].breed %></td>
+        <td><%= dogs[i].color %></td>
+        <td><%= dogs[i].age %></td>
+        <td><a href="/dogs/edit/<%= dogs[i].id %>">Edit</a> | <a href="/dogs/remove/<%= dogs[i].id %>">Remove</a></td>
+      </tr>
+      <% } %>
+    </table>
+
+
+    <!-- <% for (var i in dogs){ %>
+      <%= dogs[i].name %>
+    <% } %> -->
+    <a href="/dogs/add">Add a Dog</a>
+    <!-- <a href="/dogs/edit">Edit a Dog</a> -->
+
+  </body>
+</html>

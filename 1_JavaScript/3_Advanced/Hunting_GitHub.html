@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <script src="./jquery.js" charset="utf-8"></script>
+ <title>Document</title>
+ <script>
+ $(document).ready(
+   function(){
+     $('button').click(function(){
+       // as soon as the AJAX request returns, displayName is invoked and passed data!
+       //https://api.jquery.com/jquery.get/
+       $.get('https://api.github.com/users/nramiscal', displayLogin);
+     });
+   function displayLogin(data){
+       if (data.login){
+         $('body').append("<h1>"+data.login+"</h1>");
+       }
+     }
+   }
+ );
+ </script>
+</head>
+<body>
+<button>Click Me</button>
+</body>
+</html>

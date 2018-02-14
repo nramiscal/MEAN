@@ -1,0 +1,5 @@
+<h1>Switchboard</h1>
+<br>
+<div class="">
+    <button *ngFor="let obj of objArray; let idx = index" [ngStyle] = "{'background-color' : obj.color}" (click) = "flip_switch(idx)" >{{obj.text}}</button>
+</div>

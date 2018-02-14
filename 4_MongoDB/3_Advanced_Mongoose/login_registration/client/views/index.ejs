@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login and Registration</title>
+        <link rel="stylesheet" href="/login_reg.css">
+    </head>
+    <body>
+
+      <h1>Login</h1>
+      <%if(typeof(login_errors) != "undefined"){%>
+        <%for(error in login_errors){%>
+          <%=login_errors[error]%>
+        <%}%>
+      <%}%>
+      <form class="" action="/login" method="post">
+          <input type="text" name="email" placeholder="Email"><br>
+          <input type="password" name="pass" placeholder="Password"><br>
+          <input type="submit" value="Login">
+      </form>
+      <h1>Registration</h1>
+      <%if(typeof(reg_errors) != "undefined"){%>
+        <%for(error in reg_errors){%>
+          <%=reg_errors[error]%>
+        <%}%>
+      <%}%>
+      <form class="" action="/register" method="post">
+          <input type="text" name="first_name" placeholder="First Name"><br>
+          <input type="text" name="last_name" placeholder="Last Name"><br>
+          <input type="text" name="email" placeholder="Email"><br>
+          <input type="date" name="birthday" placeholder="Birthday"><br>
+          <input type="password" name="password" placeholder="Password"><br>
+          <input type="password" name="password_confirm" placeholder="Confirm Password"><br>
+          <input type="submit" value="Register">
+      </form>
+
+
+    </body>
+</html>

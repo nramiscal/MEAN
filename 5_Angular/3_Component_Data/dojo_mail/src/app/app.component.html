@@ -1,0 +1,18 @@
+<h1>Dojo Mail</h1>
+
+<table>
+  <tr>
+      <th>Email</th>
+      <th>Importance</th>
+      <th>Subject</th>
+      <th>Content</th>      
+  </tr>
+  <tr *ngFor = "let obj of ObjList">
+      <th>{{obj.email}}</th>
+      <th *ngIf = 'obj.importance === true'>High</th>
+      <th *ngIf = 'obj.importance === false'>Low</th>
+      <th>{{obj.subject}}</th>
+      <th>{{obj.content}}</th>
+  </tr>    
+  </table>
+

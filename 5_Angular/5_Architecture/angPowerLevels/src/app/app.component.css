@@ -1,0 +1,15 @@
+fieldset {
+    width: 800px;
+    height: 650px;
+}
+form {
+    display: inline-block;
+    vertical-align: top;
+}
+
+img {
+    height: 120px;
+    margin-left: 190px;
+    display: inline-block;
+    vertical-align: top;
+}

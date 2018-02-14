@@ -1,0 +1,28 @@
+<h1>Add a Quote</h1>
+<form (submit)="saveQuote()">
+    Quote:
+    <input
+    type="text"
+    name="content"
+    [(ngModel)]="quote.content"
+    #content="ngModel"
+    required
+    minlength="4"
+    />
+    <span *ngIf="content.errors">Quote is required.</span><br>
+    *Author
+    <input
+    type="text"
+    name="author"
+    [(ngModel)]="quote.author"
+    #author="ngModel"
+    required
+    />
+    <span *ngIf="author.errors">Author is required.</span><br>
+    <input type="submit" name="" value="Add">
+</form>
+
+{{quote | json}}<br>
+{{quotes | json}}
+
+<app-list [allQuotes]="quotes"></app-list>

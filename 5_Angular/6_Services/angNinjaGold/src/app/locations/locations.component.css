@@ -1,0 +1,11 @@
+.location{
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+button {
+    padding: 10px;
+}

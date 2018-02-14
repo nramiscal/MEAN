@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* outline: 1px dashed blue; */
+}
+
+.box{
+    width: 5px;
+    height: 200px;
+    display: inline-block;
+    /* vertical-align: top; */
+    /* background-color: #FF00FF; */
+}

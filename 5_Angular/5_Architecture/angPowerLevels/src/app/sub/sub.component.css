@@ -1,0 +1,10 @@
+fieldset {
+    width: 200px;
+    height: 200px;
+    background-color: #fefab2;
+}
+
+.subComponent {
+    display: inline-block;
+    vertical-align: top;
+}

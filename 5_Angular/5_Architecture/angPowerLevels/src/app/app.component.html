@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <fieldset>
+        <legend><h1>Power Levels</h1></legend>
+        <div class="">
+            <form (submit)="setDisplay()">
+                Initial Power Level:
+                <input type="number" name="level" [(ngModel)]="level" value="" min="1" max="100">
+                <input type="submit" name="" value="Calculate Powers">
+            </form>
+            <img src="https://i.ytimg.com/vi/szvN0qaY8po/maxresdefault.jpg" alt="dragonball">
+
+        </div>
+        <app-sub [powerLevel]="level" [display]="display"></app-sub>
+    </fieldset>
+
+</div>

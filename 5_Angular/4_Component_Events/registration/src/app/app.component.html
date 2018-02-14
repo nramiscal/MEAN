@@ -1,0 +1,62 @@
+<h1>Registration</h1>
+
+<!-- <div id="confirmation" *ngIf = 'success'> -->
+<!-- <div id="confirmation" *ngIf = 'first_name.valid && last_name.valid && email.valid && password.valid && password === confirm_password && street.valid && city.valid && state.valid' color = 'green'> -->
+<div id="confirmation" *ngIf = 'success' [ngStyle]= "{'color' : 'green'}">
+        
+  <p>Thank you for registering with us {{user.first_name}}. We just sent you a confirmation email at {{user.email}}, and we will send all mail to {{address}}.</p>
+  <p>Have a wonderful day!</p>
+</div>
+
+<div id="account_info">
+  <h2>Account Information</h2>
+  <form (submit)="onSubmit()">
+
+    <!-- first name is required -->
+    <input type="text" name="first_name" [(ngModel)]="user.first_name" #first_name='ngModel' placeholder="First Name" required>
+    <span *ngIf = '!first_name.valid' [ngStyle] = "{'color': 'red'}">First name is required.</span><br>
+
+    <!-- last name is required -->
+    <input type="text" name="last_name" [(ngModel)]="user.last_name" #last_name='ngModel' placeholder="Last Name" required>
+    <span *ngIf = '!last_name.valid' [ngStyle] = "{'color': 'red'}">Last name is required.</span><br>
+
+    <!-- email is required and must be valid -->
+    <input type="text" name="email" [(ngModel)]="user.email" #email='ngModel' placeholder="Email" required>
+    <span *ngIf = '!email.valid' [ngStyle] = "{'color': 'red'}">Email is required.</span><br>
+
+    <!-- password is required and must be at least 8 characters -->
+    <input type="password" name="password" [(ngModel)]="user.password" #password='ngModel' placeholder="Password" minlength="8" required>
+    <span *ngIf = '!password.valid' [ngStyle] = "{'color': 'red'}">Password is required.</span><br>
+
+    <!-- confirm password is required and must match password -->
+    <input type="password" name="confirm_password" [(ngModel)]="user.confirm_password" #confirm_password='ngModel' placeholder="Confirm Password" required>
+    <span *ngIf = 'password !== confirm_password' [ngStyle] = "{'color':'red'}">Password confirmation must match password.</span><br>
+    
+    <!-- street is required -->
+    <input type="text" name="street" [(ngModel)]="user.street" #street='ngModel' placeholder="Street Address" required>
+    <span *ngIf = '!street.valid' [ngStyle] = "{'color':'red'}">Street address is required.</span><br>
+    
+    <input type="text" name="unit" [(ngModel)]="user.unit" #unit='ngModel' placeholder="Unit/Apt #"><br>
+    
+    <!-- city is required -->
+    <input type="text" name="city" [(ngModel)]="user.city" #city='ngModel' placeholder="City" required>
+    <span *ngIf = '!city.valid' [ngStyle] = "{'color': 'red'}">City is required.</span><br>
+    
+    <!-- state is required -->
+    <input type="text" name="state" [(ngModel)]="user.state" #state='ngModel' placeholder="State" required>
+    <span *ngIf = '!state.valid' [ngStyle] = "{'color': 'red'}">State is required.</span><br>
+    
+    <!-- how you feel is required -->
+    <p>I'm feeling lucky</p>
+    <input type="radio" name="lucky" value="Lucky">Yes
+    <input type="radio" name="lucky" value="Lucky">No<br>
+    <input type="submit" value="Register">
+  </form>
+</div>
+
+  <!-- <button (click)="register()">Register</button> -->
+
+  <!-- {{first_name.errors | json}}<br> -->
+  <!-- {{email.errors | json}}<br> -->
+  <!-- {{email.valid | json}}<br> -->
+  {{password.errors | json}}

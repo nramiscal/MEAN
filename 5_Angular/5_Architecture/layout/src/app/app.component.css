@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    width: 1000px;
+    margin: 0px auto;
+    /* border: 1px dashed blue; */
+}
+
+.body{
+    display: inline-block;
+    vertical-align: top;
+    /* display: flex;
+    justify-content: space-around; */
+    width: 970px;
+}

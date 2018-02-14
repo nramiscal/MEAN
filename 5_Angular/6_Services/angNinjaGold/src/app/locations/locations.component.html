@@ -1,0 +1,8 @@
+<div class="locations">
+    <div *ngFor="let location of locations" class="location">
+        <h2>{{location.name}}</h2>
+        <p *ngIf="location.name !== 'Casino'">Earns {{location.min}} - {{location.max}} Gold</p>
+        <p *ngIf="location.name == 'Casino'">Earn up to or Lose up to {{location.max}} Gold</p>
+        <button (click)="calcWinnings(location.name)">{{location.name}}!</button>
+    </div>
+</div>
