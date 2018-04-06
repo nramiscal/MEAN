@@ -1,57 +1,39 @@
 
-var express = require("express");
-var path = require("path");
-var app = express();
-var session = require('express-session');
-var bodyParser = require('body-parser');
+var express = require("express"),
+    path = require("path"),
+    app = express(),
+    session = require('express-session'),
+    bodyParser = require('body-parser'),
+    port = 1234;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static(path.join(__dirname, "./static")));
-
-
-app.use(session({secret: 'codingdojorocks'}));  // string for encryption
+app.use(session({secret: 'thisissecret'}));  // string for encryption
 
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
-// root route to render the index.ejs view
 
 app.get('/', function(req, res) {
-  if (req.session.count){
-    req.session.count ++;
-  }
-  else{
-    req.session.count = 1;
-  }
- res.render("index", {session: req.session});
+    if (!req.session.count){
+        req.session.count = 1;
+    }
+    else {
+        req.session.count++;
+    }
+    res.render("index", {count: req.session.count});
 })
 
 app.get('/plus_two', function(req, res){
-  if (req.session.count){
-    req.session.count += 2;
-  }
-  else{
-    req.session.count = 1;
-  }
-  res.render("index", {session: req.session});
+    req.session.count++;
+    res.redirect("/");
 })
 
 app.get('/reset', function(req, res){
-  req.session.count = 1;
-  res.render("index", {session: req.session});
+    req.session.count = 0;
+    res.redirect("/");
 })
 
-
 // tell the express app to listen on port 8000
-app.listen(8000, function() {
- console.log("listening on port 8000");
-});
-
-app.post('/users', function (req, res){
-    // set the name property of session.
-    req.session.name = req.body.name;
-    console.log(req.session.name);
-    //code to add user to db goes here!
-    // redirect the user back to the root route.
-    res.redirect('/');
+app.listen(port, function() {
+ console.log(`listening on port ${port}`);
 });
