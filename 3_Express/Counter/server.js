@@ -8,7 +8,7 @@ var express = require("express"),
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./static")));
-app.use(session({secret: 'thisissecret'}));  // string for encryption
+app.use(session({secret: 'thisissecret'}));
 
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
@@ -33,7 +33,6 @@ app.get('/reset', function(req, res){
     res.redirect("/");
 })
 
-// tell the express app to listen on port 8000
 app.listen(port, function() {
  console.log(`listening on port ${port}`);
 });
