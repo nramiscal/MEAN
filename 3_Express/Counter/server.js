@@ -29,7 +29,7 @@ app.get('/plus_two', function(req, res){
 })
 
 app.get('/reset', function(req, res){
-    req.session.count = 0;
+    req.session.destroy();
     res.redirect("/");
 })
 
