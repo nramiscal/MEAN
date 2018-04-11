@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>All Quotes</title>
+    </head>
+    <body>
+        <h1>Here are some awesome quotes!</h1>
+
+        <% if(typeof(quotes) != "undefined"){ %>
+            <% for (let quote of quotes) { %>
+                <p>"<%= quote.quote %>"</p>
+                <p>&emsp;&emsp;&emsp;- <%= quote.author %> @ <%= quote.createdAt %></p>
+                <hr>
+            <% } %>
+        <% } %>
+
+    </body>
+
+
+
+
+</html>

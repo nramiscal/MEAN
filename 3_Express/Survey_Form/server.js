@@ -1,21 +1,18 @@
 
-var express = require("express");
-var path = require("path");
-var app = express();
-var session = require('express-session');
-var bodyParser = require('body-parser');
+var express = require("express"),
+    path = require("path"),
+    app = express(),
+    session = require('express-session'),
+    bodyParser = require('body-parser'),
+    port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./static")));
-app.use(session({secret: 'codingdojorocks'}));  // string for encryption
+app.use(session({secret: 'secret'}));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
-// root route to render the index.ejs view
 
-app.listen(8000, function() {
- console.log("listening on port 8000");
-});
-
+// ROUTES
 app.get('/', function(req, res) {
   res.render("index");
 })
@@ -29,6 +26,9 @@ app.post('/process', function (req, res){
 });
 
 app.get('/results', function(req, res){
-
   res.render("results", {data: req.session})
 })
+
+app.listen(port, function() {
+    console.log(`listening on port ${port}`);
+});
